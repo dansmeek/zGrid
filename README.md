@@ -9,7 +9,9 @@ I wanted to incorporate nesting, various breakpoints, convenient spacing, and ea
 I wanted the math to be done entirely by the compiler. So you only have to worry about specifying what you want. Such as your max-width, breakpoints, number-of-columns, fluid layout, etc.
 
 -----------------
+
 This project is still in development and -- as such -- is not 100% tested. If you are using the CSS file then this should work fine.
+
 -----------------------
 Usage
 ---
