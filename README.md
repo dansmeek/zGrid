@@ -1,6 +1,6 @@
 zGrid
 ---
-light-weight, responsive, flexible, grid
+zGrid is a light-weight, responsive, flexible, grid with lots of options.
 
 I developed zGrid to offer a grid system that effectively had various features from other responsive design grids, but not everything. I also wanted it to be lightweight, and customizable. For those of you that have larger monitors, you may notice that there is too much white space for 960px based grids or even larger sizes. Depending on who your target audience is, this is an inconvenience if you still want to use a responsive design.
 
