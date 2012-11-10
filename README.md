@@ -15,7 +15,10 @@ This project is still in development and -- as such -- is not 100% tested. If yo
 -----------------------
 Usage
 ---
-Forkit or cloneit. Make any changes you would like to the sass file and then simply type:
+Fork or clone it:  https://github.com/dansmeek/zGrid.git
+Or use the direct download link
+
+Make any changes you would like to the sass file and then simply type:
 
 sass zgrid.scss [filename]
 
