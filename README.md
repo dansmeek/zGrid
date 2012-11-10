@@ -6,8 +6,7 @@ I developed zGrid to offer a grid system to encompass features from other respon
 
 I wanted to incorporate nesting, various breakpoints, convenient spacing, and modification.
 
-I wanted the math to be done entirely by the compiler. So you only have to worry about specifying what you want. Such as your max-width, breakpoints, number-of-columns, fluid layout, etc.
-
+Anyway, enough serious talk.  All the math is done for you.  Just specify how you want the general layout to be and your set.
 
 -----------------
 
