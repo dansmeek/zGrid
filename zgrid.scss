@@ -1,0 +1,152 @@
+// zGrid
+// fluid layout
+// v0.1 - adam lipschultz
+// while this technically can work with changing the cols variable to other than 16, it would require additional configurations
+// this is like a beta version, i haven't ran through all the test cases;
+// also, only one breakpoint as of now for tablet/phone
+
+
+
+$full_width:1200px;
+$full_percent_width: 100%;
+$alpha_omega_margin: 20px;
+$margin_space:20px;
+$cols:16;
+//Breakpoint Definitions
+$tablet_portrait_size:768px;
+$all_mobile_size: $tablet_portrait_size - 1;
+$phone_landscape_size:480px;
+$phone_portrait_size: $phone_landscape_size - 1;
+//Mobile Columns Sizes
+$phone_landscape_col:420px;
+$phone_portrait_col:300px;
+//Responsive?
+$responsive: true !default;
+
+$dynamicsizing: true !default;
+
+
+//Sets the margin space for each Side of the columns unit
+@mixin margins{
+  padding-left: $margin_space;
+  padding-right: $margin_space;
+}
+
+
+//Media calls made as a mixin
+@mixin respond-to($media) {
+  @if $media == phone_portrait {
+    @media only screen and (max-width: $phone_portrait_size) { @content; }
+  }
+  @else if $media == phone_landscape {
+    @media only screen and (min-width: $phone_landscape_size) and (max-width: $all_mobile_size) { @content; }
+  }
+  @else if $media == all_mobile {
+    @media only screen and (max-width: $all_mobile_size) { @content; }
+  }
+  @else if $media == tablet_portrait {
+    @media only screen and (min-width: $tablet_portrait_size) and (max-width: $full_width - 1) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $full_width) { @content; }
+  }
+}
+
+
+// various resets
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+.row:before,.row:after,.clearfix:before,.clearfix:after{content:'';display:table}
+.row:after,.clearfix:after{clear:both}
+.row,.clearfix{zoom:1}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.zcontainer{
+  margin:0 auto;
+  @if $dynamicsizing == false
+  {
+    @include respond-to(desktop) {widows: #{$full_width}}
+    @include respond-to(tablet_portrait) {width: #{$tablet_portrait_size}}
+   @include respond-to(phone_landscape) {width: #{$phone_landscape_size}}
+    @include respond-to(phone_portrait) {width: 320px;}
+  }
+}
+
+.grid{
+  margin:0 auto;
+  max-width: $full_width;
+  width: $full_percent_width;
+}
+
+.row{
+  width:$full_percent_width;
+  margin-bottom: $margin_space;
+}
+.row .row{
+  width:auto;margin:0 -$margin_space;
+}
+
+
+
+
+@for $i from 0 through $cols {
+ $column_width: $full_percent_width/$cols*$i;
+  .c#{$i}
+
+  {
+    @include margins;
+    width: $column_width;
+    min-height: 1px;
+    @if $responsive {
+      @include respond-to(all_mobile);
+    float:left;
+
+    position:relative;
+    margin-bottom:$margin_space;
+    }
+  }
+
+
+  .a#{$i}
+  { margin-left:$margin_space*$i*3+3*$i;
+    @if $responsive {
+    @include respond-to(all_mobile);    }
+  }
+  .o#{$i}
+  {  @if $responsive {
+    @include respond-to(all_mobile);}
+    margin-right:$margin_space*$i !important; float:right !important;
+  }
+
+}
+
+
+
+.end{float:right;}
+
+// breakpoint
+@media only screen and (max-width:$full_width){
+  @for $i from 0 through $cols {
+    .row .row .c#{$i} >div:last-child{margin-bottom: 0 !important}
+  }
+
+}
+
+//breakpoint
+@media handheld, only screen and (max-width:$tablet_portrait_size), only screen and (max-device-width: $tablet_portrait_size) and (orientation:portrait) {
+  body{font-size:90%}
+  .row{margin-bottom: 0!important;}
+  @for $i from 0 through $cols {
+    .c#{$i}
+    {
+      @include margins;
+      width:100%;margin-right:0;margin-left:0;margin-bottom:$margin_space;
+    }
+  }
+}
+
+
+
