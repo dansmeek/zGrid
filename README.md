@@ -2,11 +2,12 @@ zGrid
 ---
 zGrid is a light-weight, responsive, flexible, grid with lots of options.
 
-I developed zGrid to offer a grid system that effectively had various features from other responsive design grids, but not everything. I also wanted it to be lightweight, and customizable. For those of you that have larger monitors, you may notice that there is too much white space for 960px based grids or even larger sizes. Depending on who your target audience is, this is an inconvenience if you still want to use a responsive design.
+I developed zGrid to offer a grid system to encompass features from other responsive design grids... all were good, but a certain element was always missing.   I also wanted it be lightweight, and customizable. Larger browsers show too much white space for 960px based grids.    
 
-I wanted to incorporate nesting, various breakpoints, convenient spacing, and easily modifiable.
+I wanted to incorporate nesting, various breakpoints, convenient spacing, and modification.
 
 I wanted the math to be done entirely by the compiler. So you only have to worry about specifying what you want. Such as your max-width, breakpoints, number-of-columns, fluid layout, etc.
+
 
 -----------------
 
